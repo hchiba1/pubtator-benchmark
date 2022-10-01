@@ -1,1 +1,1 @@
-# pubtator-benchmark
+# PubTator Benchmark
