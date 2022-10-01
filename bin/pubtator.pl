@@ -13,7 +13,7 @@ getopts('', \%OPT);
 STDOUT->autoflush;
 
 print "\@prefix ex: <http://example.org/> .\n";
-print "\@prefix pmid: <http://www.ncbi.nlm.nih.gov/pubmed/> .\n";
+print "\@prefix pmid: <http://identifiers.org/pubmed/> .\n";
 print "\n";
 
 !@ARGV && -t and die $USAGE;
