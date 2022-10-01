@@ -1,0 +1,13 @@
+#!/usr/bin/env spang2
+# @option --time
+# @endpoint http://localhost:8890/sparql
+
+PREFIX ex: <http://example.org/>
+PREFIX taxid: <http://identifiers.org/taxonomy/>
+
+SELECT ?gene (COUNT(?gene) AS ?count)
+WHERE {
+  ?pmid ex:hasSpecies taxid:9606 ;
+        ex:hasGene ?gene .
+}
+ORDER BY DESC(?count)
