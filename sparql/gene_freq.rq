@@ -9,4 +9,5 @@ WHERE {
   ?pmid ex:hasSpecies "9606" ;
         ex:hasGene ?gene .
 }
+GROUP BY ?gene
 ORDER BY DESC(?count)
