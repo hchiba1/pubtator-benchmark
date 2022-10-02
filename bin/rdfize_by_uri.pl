@@ -2,7 +2,6 @@
 use strict;
 use File::Basename;
 use Getopt::Std;
-
 my $PROGRAM = basename $0;
 my $USAGE=
 "Usage: $PROGRAM
@@ -14,13 +13,12 @@ getopts('', \%OPT);
 STDOUT->autoflush;
 
 print "\@prefix ex: <http://example.org/> .\n";
-print "\@prefix pmid: <http://www.ncbi.nlm.nih.gov/pubmed/> .\n";
-print "\@prefix taxid: <http://www.ncbi.nlm.nih.gov/taxonomy/> .\n";
-print "\@prefix ncbigene: <http://www.ncbi.nlm.nih.gov/ncbigene/> .\n";
+print "\@prefix pmid: <http://identifiers.org/pubmed/> .\n";
+print "\@prefix taxid: <http://identifiers.org/taxonomy/> .\n";
+print "\@prefix ncbigene: <http://identifiers.org/ncbigene/> .\n";
 print "\n";
 
 !@ARGV && -t and die $USAGE;
-STDOUT->autoflush;
 while (<>) {
     chomp;
     my @f = split(/\t/, $_);
@@ -44,7 +42,7 @@ while (<>) {
             if ($gene =~ /^\d+$/) {
                 print "pmid:$pmid ex:has$type ncbigene:$gene .\n";
             } else {
-                print STDERR "$gene\n";
+                # print STDERR "$gene\n";
             }
         }
     } else {
