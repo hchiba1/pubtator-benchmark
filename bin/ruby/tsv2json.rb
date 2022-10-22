@@ -1,12 +1,14 @@
+#!/usr/bin/env ruby
+# coding: utf-8
 require 'json'
 require 'fileutils'
 
 # 約100万件毎にsplitしてjsonに出力する。PubMedIDが同じものは同じファイル内に収める
-input_file = File.expand_path("../../data/bioconcepts2pubtatorcentral.tsv", __FILE__)
-output_dir = File.expand_path("../../data/json/", __FILE__)
+input_file = "data/bioconcepts2pubtatorcentral.tsv"
+output_dir = "data/json"
 FileUtils.mkdir_p(output_dir) unless File.exist?(output_dir)
 
-File.open(input_file) do |f|
+File.open(input_file,"r") do |f|
   document_list = []
   file_idx = 1
   current_pmid = ""

@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+# coding: utf-8
 require 'json'
 require 'fileutils'
 
@@ -51,12 +53,12 @@ require 'fileutils'
 #     ]
 #   }, ...
 #
-input_dir = File.expand_path("../../data/json/", __FILE__)
+input_dir = "data/json"
 load_file_dir_name = "load_files"
-output_dir = File.expand_path("../../data/mongodb_data/#{load_file_dir_name}/", __FILE__)
+output_dir = "data/mongodb_data/#{load_file_dir_name}"
 FileUtils.mkdir_p(output_dir) unless File.exist?(output_dir)
 
-Dir.glob("#{input_dir}/*.json").sort_by{|fn| File.birthtime(fn) }.each do |f|
+Dir.glob("#{input_dir}/*.json").sort_by{|fn| File.mtime(fn) }.each do |f|
   output_file = "#{output_dir}/#{File.basename(f)}"
   next if File.exist?(output_file)
   data_list = JSON.parse(File.read(f))
