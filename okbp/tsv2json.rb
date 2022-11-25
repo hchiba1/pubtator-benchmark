@@ -4,11 +4,11 @@ require 'json'
 require 'fileutils'
 
 # 約100万件毎にsplitしてjsonに出力する。PubMedIDが同じものは同じファイル内に収める
-input_file = "data/bioconcepts2pubtatorcentral.tsv"
-output_dir = "data/json"
+input_file = "bioconcepts2pubtatorcentral.tsv"
+output_dir = "tsv2json"
 FileUtils.mkdir_p(output_dir) unless File.exist?(output_dir)
 
-File.open(input_file,"r") do |f|
+File.open(input_file, "r") do |f|
   document_list = []
   file_idx = 1
   current_pmid = ""
