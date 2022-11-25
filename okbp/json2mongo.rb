@@ -53,9 +53,8 @@ require 'fileutils'
 #     ]
 #   }, ...
 #
-input_dir = "data/json"
-load_file_dir_name = "load_files"
-output_dir = "data/mongodb_data/#{load_file_dir_name}"
+input_dir = "tsv2json"
+output_dir = "mongodb_data"
 FileUtils.mkdir_p(output_dir) unless File.exist?(output_dir)
 
 Dir.glob("#{input_dir}/*.json").sort_by{|fn| File.mtime(fn) }.each do |f|
