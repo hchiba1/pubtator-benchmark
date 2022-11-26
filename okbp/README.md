@@ -1,3 +1,4 @@
+https://github.com/okbp/pubtator_db のスクリプトを少し編集させていただき、使いました。 
 ```
 $ ls
 bioconcepts2pubtatorcentral.tsv
